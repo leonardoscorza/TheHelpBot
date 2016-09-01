@@ -1,0 +1,22 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<aiml version="2.0">
+
+    <category>
+        <pattern>Conte de <set>number</set> até <set>number</set></pattern>
+        <template>
+          <think><set name="count"><star/></set></think>
+          <get name="count"/>
+          <condition name="count">
+            <li><value><star index="2" /></value></li>
+            <li>
+              <set name="count">
+                <map><name>successor</name><get name="count"/></map>
+              </set>
+              <loop/>
+            </li>
+          </condition>
+          ..... carneirinhos :)
+        </template>
+    </category>
+    
+</aiml>

@@ -1,0 +1,117 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<aiml version="2.0">
+    <category>
+        <pattern>OI! ^</pattern>
+        <template>Olá, como você <set name="topic">chama</set>?</template>
+    </category>
+    
+    
+    <!-- 'OI!' VARIANTIONS -->
+    
+    <category>
+        <pattern>OI ^</pattern>
+        <template><srai>OI!</srai></template>
+    </category>
+    
+    <category>
+        <pattern>OLÁ! ^</pattern>
+        <template><srai>OI!</srai></template>
+    </category>
+    
+    <category>
+        <pattern>OLA! ^</pattern>
+        <template><srai>OI!</srai></template>
+    </category>
+    
+    <category>
+        <pattern>OLA ^</pattern>
+        <template><srai>OI!</srai></template>
+    </category>
+    
+    <category>
+        <pattern>HI! ^</pattern>
+        <template><srai>OI!</srai></template>
+    </category>
+    
+    <category>
+        <pattern>HI ^</pattern>
+        <template><srai>OI!</srai></template>
+    </category>
+    
+    <category>
+        <pattern>EAI! ^</pattern>
+        <template><srai>OI!</srai></template>
+    </category>
+    
+    <category>
+        <pattern>EAI ^</pattern>
+        <template><srai>OI!</srai></template>
+    </category>
+    
+    <!-- END OF 'OI!' VARIANTIONS -->
+    
+    
+    
+    <topic name="chama">
+        <category>
+            <pattern>*</pattern>
+            <template>Fala aí <set name="client_name"><star/></set>, como posso te ajudar?
+                <think><set name="topic">*</set></think>
+            </template>
+        </category>
+    </topic>
+    
+    <category>
+        <pattern>MEU NOME É *</pattern>
+        <template>Fala aí <set name="client_name"><star/></set>, como posso te ajudar?</template>
+    </category>
+    
+    <category>
+        <pattern>COMO É MEU NOME? ^</pattern>
+        <template>
+            <condition name="client_name">
+                <li value="*">
+                    <random>
+                        <li><get name="client_name"></get>!</li>
+                        <li>Seu nome é <get name="client_name"></get></li>
+                        <li>Tá esquecido hein <get name="client_name"></get></li>
+                        <li>Isso é uma pegadinha <get name="client_name"></get>? Cade as câmeras?</li>
+                        <li>Lá vamos nós de novo com essa brincadeira né <get name="client_name"></get></li>
+                    </random>
+                    <think><set name="topic">*</set></think>
+                </li>
+                <li>
+                    Você ainda não me disse seu nome! Qual é?
+                    <think><set name="topic">chama</set></think>
+                </li>
+            </condition>
+        </template>
+    </category>
+    
+    <!-- 'COMO É MEU NOME' VARIANTIONS -->
+    <category>
+        <pattern>QUAL É ^ MEU NOME? ^</pattern>
+        <template><srai>COMO É MEU NOME? ^</srai></template>
+    </category>
+    
+    <category>
+        <pattern>MEU NOME? ^</pattern>
+        <template><srai>COMO É MEU NOME? ^</srai></template>
+    </category>
+    
+    <category>
+        <pattern>MEU NOME É? ^</pattern>
+        <template><srai>COMO É MEU NOME? ^</srai></template>
+    </category>
+    
+    <category>
+        <pattern>DIGA MEU NOME? ^</pattern>
+        <template><srai>COMO É MEU NOME? ^</srai></template>
+    </category>
+    
+    <category>
+        <pattern>COMO ^ ME CHAMO? ^</pattern>
+        <template><srai>COMO É MEU NOME? ^</srai></template>
+    </category>
+    <!-- END OF 'COMO É MEU NOME' VARIANTIONS -->
+</aiml>
